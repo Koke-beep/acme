@@ -1,0 +1,39 @@
+.homepage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 25px;
+  min-height: 100vh;
+  max-width: 100vw;
+  background-color: var(--secondary-color);
+  overflow: auto;
+}
+
+.cards__wrapper {
+  display: flex;
+  overflow:hidden;
+  width: 340px;
+  transition: 0.5s width;
+  border-radius: 15px;
+
+  app-card {
+    border-radius: 15px;
+    z-index: 10;
+
+    &:nth-child(2n) {
+      z-index:80;
+    }
+    &:last-of-type{
+      z-index: 6;
+    }
+  }
+}
+
+.firstCard{
+  width: 680px;
+  transition: 1s width;
+}
+.secondCard{
+  width: 1020px;
+}
+

@@ -1,0 +1,8 @@
+<div class="homepage">
+  <div #cardsWrap class="cards__wrapper">
+    <app-card [$cardData]="$users" class="alvaro" (click)="showCard()"></app-card>
+    <app-card #card (click)="showCard(2)"></app-card>
+    <app-card #card></app-card>
+  </div>
+
+</div>
