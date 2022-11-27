@@ -1,8 +1,20 @@
 <div class="homepage">
-  <div #cardsWrap class="cards__wrapper">
-    <app-card [$cardData]="$users" class="alvaro" (click)="showCard()"></app-card>
-    <app-card #card (click)="showCard(2)"></app-card>
-    <app-card #card></app-card>
+  <div #cardsWrap class="cards_wrapper">
+    <app-card
+      [cardData]="usersCollection"
+      (eventClickCard)="getPostsUser($event)"
+      section="users"
+    ></app-card>
+    <app-card *ngIf="userSelected.size > 0"
+      #card
+      [cardData]="userSelected"
+      section="post"
+      (eventClickCard)="getPostComments($event)"
+    ></app-card>
+    <app-card *ngIf="currentComments.size > 0"
+      #card
+      [cardData]="currentComments"
+      section="comments"
+    ></app-card>
   </div>
-
 </div>

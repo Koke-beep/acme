@@ -1,6 +1,7 @@
-import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
-import { Observable } from 'rxjs';
-import { IUser } from 'src/app/models/user.model';
+import { AfterViewInit, Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation } from '@angular/core';
+import { IUserCollection } from 'src/app/models/state.model';
+import { HomepageComponent } from 'src/app/modules/homepage/homepage.component';
+import { StateService } from 'src/app/store/state.service';
 
 @Component({
   selector: 'app-card',
@@ -9,10 +10,21 @@ import { IUser } from 'src/app/models/user.model';
   encapsulation: ViewEncapsulation.None
 })
 export class CardComponent implements OnInit {
-  @Input() $cardData!: Observable<IUser[]>
+  @Input() cardData!: Map<number, any>
+  @Input() section!: string
+  @Output() eventClickCard = new EventEmitter()
 
   constructor() { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    if(this.section === "comments"){
+      console.log("DATA:", this.cardData)
+      // console.log("VALUE:", this.cardData.value)
 
+    }
+  }
+
+  onClickCard(event: any){
+    this.eventClickCard.emit(event)
+  }
 }

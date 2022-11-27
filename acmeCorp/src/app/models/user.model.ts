@@ -1,3 +1,5 @@
+import { IPost } from "./state.model"
+
 export interface IUser {
   id: number
   name: string
@@ -20,4 +22,5 @@ export interface IUser {
     catchPhrase: string
     bs: string
   }
+  posts?: IPost[]
 }

@@ -9,31 +9,26 @@
   overflow: auto;
 }
 
-.cards__wrapper {
+.cards_wrapper {
   display: flex;
   overflow:hidden;
+  gap: 20px;
   width: 340px;
   transition: 0.5s width;
   border-radius: 15px;
 
   app-card {
     border-radius: 15px;
-    z-index: 10;
-
-    &:nth-child(2n) {
-      z-index:80;
-    }
-    &:last-of-type{
-      z-index: 6;
-    }
+    z-index: 350px;
+    width: 350px;
   }
 }
 
 .firstCard{
-  width: 680px;
+  width: 700px;
   transition: 1s width;
 }
 .secondCard{
-  width: 1020px;
+  width: 1120px;
 }
 

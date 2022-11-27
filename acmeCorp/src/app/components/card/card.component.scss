@@ -28,16 +28,30 @@
     &-row {
       display: flex;
       margin-bottom: 8px;
+      max-height: 50px;
+
       h2 {
-        width: 55px;
+        min-width: 55px;
       }
+
       p{
         display: flex;
         align-items: center;
-        margin-left: 10px;
-       }
+        width:auto ;
+        max-height: inherit;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        white-space: normal;
+      }
     }
   }
+}
+
+.description {
+  height: fit-content;
 }
 
 .card_data:hover {
