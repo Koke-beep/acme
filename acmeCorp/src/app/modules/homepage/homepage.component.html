@@ -1,0 +1,20 @@
+<div class="homepage">
+  <div #cardsWrap class="cards_wrapper">
+    <app-card
+      [cardData]="usersCollection"
+      (eventClickCard)="getPostsUser($event)"
+      section="users"
+    ></app-card>
+    <app-card *ngIf="userSelected.size > 0"
+      #card
+      [cardData]="userSelected"
+      section="post"
+      (eventClickCard)="getPostComments($event)"
+    ></app-card>
+    <app-card *ngIf="currentComments.size > 0"
+      #card
+      [cardData]="currentComments"
+      section="comments"
+    ></app-card>
+  </div>
+</div>

@@ -1,1 +1,41 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Limelight&family=Roboto:ital@1&display=swap');
+
+:root{
+  --font-primary: 'Roboto', sans-serif;
+  --primary-color: #add8e6;
+  --primary-darkness: #85cce4;
+  --secondary-color: #20b2aa;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+  font-family: var(--font-primary);
+  letter-spacing: 1px;
+  box-sizing: border-box;
+  scrollbar-width: thin;
+}
+
+h1 {
+  font-size: 1.5rem;
+}
+
+h2 {
+  font-size: 1.1rem;
+}
+
+
+::-webkit-scrollbar {
+  width: 5px;
+
+  &-track {
+    background: #209a93;
+  }
+  &-thumb {
+    background: lightblue;
+    border-radius: 25px;
+  }
+}
+
+

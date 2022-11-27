@@ -1,0 +1,34 @@
+.homepage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 25px;
+  min-height: 100vh;
+  max-width: 100vw;
+  background-color: var(--secondary-color);
+  overflow: auto;
+}
+
+.cards_wrapper {
+  display: flex;
+  overflow:hidden;
+  gap: 20px;
+  width: 340px;
+  transition: 0.5s width;
+  border-radius: 15px;
+
+  app-card {
+    border-radius: 15px;
+    z-index: 350px;
+    width: 350px;
+  }
+}
+
+.firstCard{
+  width: 700px;
+  transition: 1s width;
+}
+.secondCard{
+  width: 1120px;
+}
+

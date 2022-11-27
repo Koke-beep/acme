@@ -1,0 +1,77 @@
+<div class="card">
+  <div class="card_header">
+    <h1>Users</h1>
+  </div>
+
+  <!--IMPROVE: pasarle un array de objetos clave-valor para poder generar los titulos y su contenido dinamicamente.
+  Reduciria los problemas con TS y haría al component más reutilizable -->
+  <ng-container [ngSwitch]="section">
+    <ng-container [ngSwitch]="section">
+
+      <ng-container *ngSwitchCase="'users'">
+        <div *ngFor="let data of cardData | keyvalue;"
+          (click)="onClickCard(data.value)"
+          class="card_data"
+        >
+          <div class="card_data-row">
+            <h2>Id: </h2>
+            <p>{{ data.value.id }}</p>
+          </div>
+          <div class="card_data-row">
+            <h2>Name: </h2>
+            <p>{{ data.value.name }}</p>
+          </div>
+        </div>
+      </ng-container>
+    </ng-container>
+
+    <ng-container *ngSwitchCase="'post'">
+      <ng-container *ngFor="let data of cardData | keyvalue ">
+        <div *ngFor="let post of data.value?.posts;"
+          class="card_data"
+          (click)="onClickCard(post)"
+        >
+          <div class="card_data-row">
+            <h2>Id: </h2>
+            <p>{{ post.id || '-' }}</p>
+          </div>
+          <div class="card_data-row">
+            <h2>Title: </h2>
+            <p>{{ post.title || '-' }}</p>
+          </div>
+          <div class="card_data-row">
+            <h2>Body: </h2>
+            <p class="description">{{ post.body || '-' }}</p>
+          </div>
+        </div>
+      </ng-container>
+    </ng-container>
+
+    <ng-container *ngSwitchCase="'comments'">
+      <ng-container *ngFor="let data of cardData | keyvalue ">
+        <div *ngFor="let comment of data.value;"
+          class="card_data"
+          (click)="onClickCard(comment)"
+        >
+          <div class="card_data-row">
+            <h2>Id: </h2>
+            <p>{{ comment.id || '-' }}</p>
+          </div>
+          <div class="card_data-row">
+            <h2>Title: </h2>
+            <p>{{ comment.name || '-' }}</p>
+          </div>
+          <div class="card_data-row">
+            <h2>Email: </h2>
+            <p class="description">{{ comment.email || '-' }}</p>
+          </div>
+          <div class="card_data-row">
+            <h2>Body: </h2>
+            <p class="description">{{ comment.body || '-' }}</p>
+          </div>
+        </div>
+      </ng-container>
+    </ng-container>
+
+  </ng-container>
+</div>
