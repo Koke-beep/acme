@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { IComment, IPost, IState, IUserCollection } from '../models/state.model';
-import { IUser } from '../models/user.model';
-import { filter, map, take } from 'rxjs/operators'
+import { map, take, distinctUntilChanged } from 'rxjs/operators'
 import { ApiRequestService } from '../services/api-request.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class StateService {
+  //TODO Improve state: comments and posts should be a Map object. Makes the card component more reusable.
   private _state: BehaviorSubject<IState> = new BehaviorSubject<IState>({
     users: new Map(),
     idUserSelected: undefined,
@@ -22,12 +22,12 @@ export class StateService {
 
   constructor(private _apiRequest: ApiRequestService) {
     this.$users = this._state.pipe(
-      filter(({users}) => users.size > 0),
       map(state => {
         return {
           users: state.users,
           idUserSelected: state.idUserSelected as number}
-      })
+      }),
+      distinctUntilChanged()
     )
   }
 
