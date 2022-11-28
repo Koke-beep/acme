@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Limelight&family=Roboto:ital@1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Limelight&family=Roboto&display=swap');
 
 :root{
   --font-primary: 'Roboto', sans-serif;
@@ -23,6 +23,43 @@ h1 {
 
 h2 {
   font-size: 1.1rem;
+}
+
+input {
+  border: thin solid black;
+  height: 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.ng-invalid.ng-touched {
+  border-color:red;
+}
+small {
+  font-size: 0.8rem;
+  color: red;
+}
+
+button {
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: thin solid lightgray;
+  cursor: pointer;
+
+  &:hover{
+    border: thin solid var(--primary-darkness)
+  }
+  &:hover > * {
+    transform: scale(1.1);
+  }
+}
+
+.asterisk::after{
+  padding-left: 3px;
+  content: '*';
+  color: red;
+  position: absolute;
 }
 
 

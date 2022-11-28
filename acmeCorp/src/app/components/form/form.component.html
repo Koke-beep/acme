@@ -1,0 +1,13 @@
+<form class="userForm" [formGroup]="form" (submit)="submitForm()">
+  <ng-content select="[header]"></ng-content>
+
+  <div class="row" *ngFor="let control of formData">
+    <div class="row_label">
+      <label class='asterisk'>{{control.label | titlecase}} </label>
+      <small *ngIf="isRequired(control.control)" class='ng-invalid ng-touched'>Required</small>
+    </div>
+    <input appMaskDirective [formControlName]="control.control" [placeholder]="control.placeholder" type="email" class="row_input">
+  </div>
+
+  <ng-content select="[footer]"></ng-content>
+</form>

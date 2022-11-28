@@ -1,0 +1,12 @@
+.createUser {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+
+  app-form  h1 {
+    width: 100%;
+    margin-bottom: 20px;
+    border-bottom: thin solid lightgray;
+  }
+}

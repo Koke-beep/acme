@@ -1,7 +1,5 @@
-import { AfterViewInit, Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation } from '@angular/core';
-import { IUserCollection } from 'src/app/models/state.model';
-import { HomepageComponent } from 'src/app/modules/homepage/homepage.component';
-import { StateService } from 'src/app/store/state.service';
+import { Component, EventEmitter, Input, Output, ViewEncapsulation } from '@angular/core';
+
 
 @Component({
   selector: 'app-card',
@@ -9,22 +7,16 @@ import { StateService } from 'src/app/store/state.service';
   styleUrls: ['./card.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class CardComponent implements OnInit {
+export class CardComponent{
+  // TODO Improve: makes the input variable key-value (more reusable) for avoid switch statements (HTML) and remove @Input section
+
   @Input() cardData!: Map<number, any>
   @Input() section!: string
   @Output() eventClickCard = new EventEmitter()
 
   constructor() { }
 
-  ngOnInit(): void {
-    if(this.section === "comments"){
-      console.log("DATA:", this.cardData)
-      // console.log("VALUE:", this.cardData.value)
-
-    }
-  }
-
-  onClickCard(event: any){
+  onClickCard(event: Event){
     this.eventClickCard.emit(event)
   }
 }
