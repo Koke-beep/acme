@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http'
 import { environment } from 'src/environments/environment';
 import { catchError, map } from 'rxjs/operators';
-import { throwError } from 'rxjs';
+import { of, throwError } from 'rxjs';
 import { IUser } from '../models/user.model';
 import { IComment, IPost } from '../models/state.model';
 
@@ -12,6 +12,7 @@ import { IComment, IPost } from '../models/state.model';
 
 export class ApiRequestService {
   static API_URL = environment.apiUrl
+  backupUsers: IUser[] = []
 
   constructor(private _httpApi: HttpClient) { }
 
@@ -19,14 +20,21 @@ export class ApiRequestService {
 
   getUsers(){
     return this._httpApi.get<IUser[]>(`${ApiRequestService.API_URL}/users`).pipe(
-      map(response => response),
+      map(response => {
+        this.backupUsers = [...response]
+        return response.slice(0, 3)
+      }),
       catchError(error => {
         return throwError(error)
       })
     )
   }
 
-  getPostByUserId(id: number){
+  getMoreUsers(index: number){
+    return of(this.backupUsers.slice(index, index + 3))
+  }
+
+  getPostByUserId(id: number) {
     const params = new HttpParams().set('userId', id.toString())
 
     return this._httpApi.get<IPost[]>(`${ApiRequestService.API_URL}/posts/`, { params }).pipe(

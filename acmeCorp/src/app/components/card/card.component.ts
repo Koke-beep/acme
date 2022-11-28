@@ -13,10 +13,17 @@ export class CardComponent{
   @Input() cardData!: Map<number, any>
   @Input() section!: string
   @Output() eventClickCard = new EventEmitter()
+  @Output() eventLoadUsers = new EventEmitter()
 
   constructor() { }
 
   onClickCard(event: Event){
     this.eventClickCard.emit(event)
+  }
+
+  loadMoreUsers(){
+    debugger
+    const lastUserId = Array.from(this.cardData)[this.cardData.size -1][0]
+    this.eventLoadUsers.emit(lastUserId)
   }
 }

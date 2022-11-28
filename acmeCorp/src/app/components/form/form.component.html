@@ -6,7 +6,20 @@
       <label class='asterisk'>{{control.label | titlecase}} </label>
       <small *ngIf="isRequired(control.control)" class='ng-invalid ng-touched'>Required</small>
     </div>
-    <input appMaskDirective [formControlName]="control.control" [placeholder]="control.placeholder" type="email" class="row_input">
+    <ng-container [ngSwitch]="control.mask">
+      <ng-container *ngSwitchCase="'zipMask'">
+        <input appMaskDirective [formControlName]="control.control" [placeholder]="control.placeholder" type="email" class="row_input">
+      </ng-container>
+      <ng-container *ngSwitchDefault>
+        <input
+          [formControlName]="control.control"
+          [placeholder]="control.placeholder"
+          [ngClass]="{'inputContent': control.control === 'telephoneNumber'}"
+          type="email"
+          class="row_input">
+        <span *ngIf="control.control === 'telephoneNumber'" class="row_input-pos">+34</span>
+      </ng-container>
+    </ng-container>
   </div>
 
   <ng-content select="[footer]"></ng-content>

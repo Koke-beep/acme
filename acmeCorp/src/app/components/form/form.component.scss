@@ -14,6 +14,7 @@
   flex-wrap: wrap;
   width: fit-content;
   height: 40px;
+  position: relative;
 
   &_label {
     display: flex;
@@ -27,6 +28,17 @@
 
   &_input {
     width: 250px;
+    &-pos {
+      position: absolute;
+      left: 110px;
+      top: 2px;
+    }
   }
 }
+
+.inputContent {
+  padding-left: 40px;
+}
+
+
 

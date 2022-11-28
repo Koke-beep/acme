@@ -48,12 +48,13 @@ button {
   border: thin solid lightgray;
   cursor: pointer;
   background: var(--primary-color);
+  opacity: 0.7;
+  font-weight: bold;
 
   &:hover{
-    border: thin solid var(--primary-darkness)
-  }
-  &:hover > * {
-    transform: scale(1.1);
+    border: thin solid var(--primary-darkness);
+    opacity: 1;
+    font-weight: lighter;
   }
 }
 .btn_round {

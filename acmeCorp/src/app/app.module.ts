@@ -4,7 +4,6 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { MaskDirective } from './directives/mask.directive'
 
 @NgModule({
   declarations: [
@@ -17,7 +16,5 @@ import { MaskDirective } from './directives/mask.directive'
   ],
   providers: [],
   bootstrap: [AppComponent],
-  exports: [
-  ]
 })
 export class AppModule { }

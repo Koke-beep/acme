@@ -45,6 +45,19 @@ export class StateService {
     ).subscribe()
   }
 
+  getMoreUsers(lastUserId: number){
+    this._apiRequest.getMoreUsers(lastUserId).pipe(
+      map(usersResponse => {
+        let users = new Map()
+
+        this._state.value.users.forEach(user => users.set(user.id, user))
+        usersResponse.forEach(user => users.set(user.id, user))
+        this._state.next({...this._state.value, users })
+      }),
+      take(1)
+    ).subscribe()
+  }
+
   getPostsUser(userId: number) {
     const postLoaded = this._state.value.users.get(userId)?.posts
     // Load posts when postLoaded is false (doesn't exist)
@@ -110,14 +123,15 @@ export class StateService {
   }
 
   checkIfPostHasComments(postId: number, userId: number): boolean {
-    if(this._state.value.users.get(userId)?.posts){
-      return this._state.value.users.get(userId)?.posts?.some(post => {
+    const userPosts = this._state.value.users.get(userId)?.posts
+    if(userPosts){
+      return userPosts.some(post => {
         if(post.id === postId && post.comments?.length){
           return true
         }else{
           return false
         }
-      }) as boolean
+      })
     }
     return false
   }
