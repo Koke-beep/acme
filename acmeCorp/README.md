@@ -7,14 +7,14 @@
 ## Que hemos obviado
 
 * La implementación de un HttpInterceptor para gestionar los errores de la petición.
-* Los estilos son mejorables 100%.
+* Los estilos son mejorables 100% :hourglass:
 * Cambiar los colores por dominio no está hecho (falta de tiempo).
 * Directivas para gestionar las máscaras (input mask): hice una a modo de ejemplo (zip), el resto con Validators.pattern() por tiempo.
 
 ## Mejoras 🛠️
 
 * Al empezar la carga en la ruta "/user" la autentificación falla, por lo que se debería redirigir al "/homepage", y no quedarse en blanco. Deberíamos gestionarlo mediante un servicio para el canActivate y el canLoad.
-* Componente Card mal enfocado (User, Post, Comments): debería haber sido una clase css global para hacer el contenedor y un componente para cada entidad (actualmente es todo un bloque - componente)
+* Componente Card mal enfocado (User, Post, Comments): debería haber sido una clase css global para hacer el contenedor y un componente para cada entidad (actualmente es todo un bloque - componente).
 * Definición de nombres
 * Otras :coffee::coffee::coffee:
 
