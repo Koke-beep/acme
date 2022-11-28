@@ -83,4 +83,8 @@ export class HomepageComponent implements OnInit, OnDestroy {
     this.showCard(2)
     this._store.getPostComments({ postId: post.id, userId: post.userId })
   }
+
+  loadMoreUsers(lastUserId: number) {
+    this._store.getMoreUsers(lastUserId)
+  }
 }

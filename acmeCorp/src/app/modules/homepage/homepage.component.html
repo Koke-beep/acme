@@ -3,6 +3,7 @@
     <app-card
       [cardData]="usersCollection"
       (eventClickCard)="getPostsUser($event)"
+      (eventLoadUsers)="loadMoreUsers($event)"
       section="users"
     ></app-card>
     <app-card *ngIf="userSelected.size > 0"

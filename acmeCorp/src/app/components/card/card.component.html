@@ -1,7 +1,7 @@
 <div class="card">
   <div class="card_header">
     <h1>Users</h1>
-    <button class="btn_round"><i class="fa-solid fa-plus"></i></button>
+    <button (click)="loadMoreUsers()" class="btn_round"><i class="fa-solid fa-plus"></i></button>
   </div>
 
   <ng-container [ngSwitch]="section">
