@@ -1,1 +1,9 @@
-<router-outlet></router-outlet>
+<div class="main">
+  <header>
+    <div>
+      <button class="btn_redirect" (click)="redirectPage(0)">Homepage</button>
+      <button class="btn_redirect" (click)="redirectPage(1)">Users</button>
+    </div>
+  </header>
+  <router-outlet></router-outlet>
+</div>

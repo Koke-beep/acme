@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Limelight&family=Roboto&display=swap');
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css");
 
 :root{
   --font-primary: 'Roboto', sans-serif;
@@ -42,10 +43,11 @@ small {
 }
 
 button {
-  padding: 5px 10px;
+  padding: 5px 20px;
   border-radius: 5px;
   border: thin solid lightgray;
   cursor: pointer;
+  background: var(--primary-color);
 
   &:hover{
     border: thin solid var(--primary-darkness)
@@ -53,6 +55,12 @@ button {
   &:hover > * {
     transform: scale(1.1);
   }
+}
+.btn_round {
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+  padding: 0;
 }
 
 .asterisk::after{
