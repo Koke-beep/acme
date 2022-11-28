@@ -1,27 +1,39 @@
-# AcmeCorp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.15.
+# AnalyticalWays - AcmeCorp
 
-## Development server
+* Aplicación reactiva de dos vistas: dashboard y usuario (protegida CanActivate y CanLoad)
+* Control del estado de la aplicación mediante observables (solo tiene 2 selectores).
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Que hemos obviado
 
-## Code scaffolding
+* La implementación de un HttpInterceptor para gestionar los errores de la petición.
+* Los estilos son mejorables 100%.
+* Cambiar los colores por dominio no está hecho (falta de tiempo).
+* Directivas para gestionar las máscaras (input mask): hice una a modo de ejemplo (zip), el resto con Validators.pattern() por tiempo.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Mejoras 🛠️
 
-## Build
+* Al empezar la carga en la ruta "/user" la autentificación falla, por lo que se debería redirigir al "/homepage", y no quedarse en blanco. Deberíamos gestionarlo mediante un servicio para el canActivate y el canLoad.
+* Componente Card mal enfocado (User, Post, Comments): debería haber sido una clase css global para hacer el contenedor y un componente para cada entidad (actualmente es todo un bloque - componente)
+* Definición de nombres
+* Otras :coffee::coffee::coffee:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+## Comenzando 🚀
 
-## Running unit tests
+Obtener una copia del proyecto en funcionamiento en tu máquina local:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```
+    git clone https://github.com/Koke-beep/acme.git
+```
+```
+    cd acme/acmeCorp
+    npm install
+    ng serve
+```
 
-## Running end-to-end tests
+## Construido
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+* Angular v.11.2.19
+* RxJS
+* TS
+---
