@@ -1,1 +1,18 @@
 
+.main {
+  height: 100vh;
+  background-color: var(--secondary-color);
+
+  header {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    height: 50px;
+    border-bottom: thin solid var(--primary-color);
+  }
+}
+
+.btn_redirect {
+  width: 120px;
+  margin-right: 20px;
+}

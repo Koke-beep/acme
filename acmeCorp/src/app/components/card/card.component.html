@@ -1,11 +1,10 @@
 <div class="card">
   <div class="card_header">
     <h1>Users</h1>
+    <button class="btn_round"><i class="fa-solid fa-plus"></i></button>
   </div>
 
   <ng-container [ngSwitch]="section">
-    <ng-container [ngSwitch]="section">
-
       <ng-container *ngSwitchCase="'users'">
         <div *ngFor="let data of cardData | keyvalue;"
           (click)="onClickCard(data.value)"
@@ -21,7 +20,6 @@
           </div>
         </div>
       </ng-container>
-    </ng-container>
 
     <ng-container *ngSwitchCase="'post'">
       <ng-container *ngFor="let data of cardData | keyvalue ">

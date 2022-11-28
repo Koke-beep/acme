@@ -1,6 +1,15 @@
-import { Component, OnInit, ViewChildren, Renderer2, QueryList, ElementRef, ViewEncapsulation, ViewChild, OnDestroy } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  ViewChildren,
+  Renderer2,
+  QueryList,
+  ElementRef,
+  ViewEncapsulation,
+  ViewChild,
+  OnDestroy
+} from '@angular/core';
 import {  Subscription } from 'rxjs';
-import { filter } from 'rxjs/operators';
 import { CardComponent } from 'src/app/components/card/card.component';
 import { IComment, IPost, IUserCollection } from 'src/app/models/state.model';
 import { IUser } from 'src/app/models/user.model';
@@ -35,12 +44,7 @@ export class HomepageComponent implements OnInit, OnDestroy {
         this.userSelected = new Map()
         this.userSelected.set(idUserSelected, users.get(idUserSelected)!)
 
-        if(this.selectedPostId !== null){
-          const commentsPost = this.userSelected.get(idUserSelected)?.posts?.find(post => post.id === this.selectedPostId)
-          this.currentComments = new Map().set(0, commentsPost?.comments)
-        }else{
-          this.currentComments = new Map()
-        }
+        this.setCommentsUser(idUserSelected)
       }
     })
   }
@@ -59,6 +63,15 @@ export class HomepageComponent implements OnInit, OnDestroy {
     }
   }
 
+  setCommentsUser(id: number) {
+    if(this.selectedPostId !== null){
+      const commentsPost = this.userSelected.get(id)?.posts?.find(post => post.id === this.selectedPostId)
+      this.currentComments = new Map().set(0, commentsPost?.comments)
+    }else{
+      this.currentComments = new Map()
+    }
+  }
+
   getPostsUser(user: IUser) {
     this.selectedPostId = null
     this.showCard()
@@ -70,6 +83,4 @@ export class HomepageComponent implements OnInit, OnDestroy {
     this.showCard(2)
     this._store.getPostComments({ postId: post.id, userId: post.userId })
   }
-
-
 }

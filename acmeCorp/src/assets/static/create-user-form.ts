@@ -3,20 +3,21 @@ import { Validators } from '@angular/forms'
 
 const regExpEmail = '[0-9]{3}-[0-9]{1}'
 const regExpPhone = '[0-9]{3} [0-9]{3} [0-9]{3}'
+const regExpZip = '[0-9]{4}-[0-9]{3}'
 export const createUserForm: IForm[] = [
   {
     control: 'email',
     value: '',
     label: 'email',
     validators: [Validators.required,Validators.email],
-    placeholder: '',
+    placeholder: 'example@gmail.com',
   },
 
   {
     control: 'zip',
     value: '',
     label: 'zip',
-    validators: [Validators.required,Validators.pattern(regExpEmail)],
+    validators: [Validators.required,Validators.pattern(regExpZip)],
     placeholder: '____-___',
   },
   {
@@ -24,7 +25,7 @@ export const createUserForm: IForm[] = [
     value: '',
     label: 'geo',
     validators: [Validators.required],
-    placeholder: 'Limit to 5 decimals',
+    placeholder: 'latitude / longitude',
   },
   {
     control: 'telephoneNumber',
@@ -38,6 +39,6 @@ export const createUserForm: IForm[] = [
     value: '',
     label: 'website',
     validators: [Validators.required],
-    placeholder: '',
+    placeholder: 'http://websiteExample.com',
   }
 ]

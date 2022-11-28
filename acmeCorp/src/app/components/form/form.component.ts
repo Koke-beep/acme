@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
+import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { IForm } from 'src/app/models/form.model';
 
 @Component({
@@ -15,7 +15,6 @@ export class FormComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = this.generateForm()
-    console.log("VALIDATOOORS", typeof Validators)
   }
 
   generateForm() {
@@ -39,7 +38,6 @@ export class FormComponent implements OnInit {
   }
 
   submitForm(): boolean {
-    console.log("works",this.form.get('zip')?.invalid)
     this.form.markAllAsTouched()
     if(this.form.invalid){
       return false
